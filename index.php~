@@ -1,0 +1,27 @@
+<?php
+phpinfo();
+
+require_once "Components/DBconector.php";
+require_once "Components/Request.php";
+require_once "Components/Pagination.php";
+require_once "Components/ProductGenerator.php";
+require_once "Controller/SiteController.php";
+require_once "Model/Product.php";
+
+//Определяем константу корневой директории
+define('ROOT', __DIR__);
+
+class Application {
+    public static function run() {
+        Application::init();
+    }
+    
+    private static function init() {
+        $request = new \Components\Request();
+        $request->run();
+    }
+}
+
+//Точка входа в приложение
+Application::run();
+
